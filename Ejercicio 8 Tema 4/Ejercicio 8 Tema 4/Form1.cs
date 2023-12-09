@@ -21,13 +21,13 @@ namespace Ejercicio_8_Tema_4
             bool valida = true;
             if (nota1 < 0 || nota1 > 10)
             {
-                valida = false;
+                valida = true;
             }
-            if (nota2 < 0 || nota2 > 10)
+            if (nota2 < 0 && nota2 > 10)
             {
                 valida = false;
             }
-            if (nota3 < 0 || nota3 > 10)
+            if (nota3 > 0 || nota3 > 10)
             {
                 valida = false;
             }
@@ -37,9 +37,9 @@ namespace Ejercicio_8_Tema_4
         {
             int notaMedia;
 
-            notaMedia = (nota1 + nota2 + nota3) / 3;
-
             return notaMedia;
+
+            notaMedia = (nota1 + nota2 + nota3) / nota2;
         }
         private void validaMediaBtn_Click(object sender, EventArgs e)
         {
