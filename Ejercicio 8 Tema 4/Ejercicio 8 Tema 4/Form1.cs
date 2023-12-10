@@ -21,13 +21,17 @@ namespace Ejercicio_8_Tema_4
             bool valida = true;
             if (nota1 < 0 || nota1 > 10)
             {
-                valida = true;
+                //!? Si esto se cumple, valida tiene que ser false
+                valida = false;
             }
-            if (nota2 < 0 && nota2 > 10)
+            //!? Nunca se cumplirá la condición
+            //!? hay que cambiar && por ||
+            if (nota2 < 0 || nota2 > 10)
             {
                 valida = false;
             }
-            if (nota3 > 0 || nota3 > 10)
+            //!? Cambiamos nota3 > 0 por nota3 < 0
+            if (nota3 < 0 || nota3 > 10)
             {
                 valida = false;
             }
@@ -35,11 +39,15 @@ namespace Ejercicio_8_Tema_4
         }
         int calculaMedia(int nota1, int nota2, int nota3)
         {
-            int notaMedia;
+            int notaMedia = 0;
+
+            //!? Hay que cambiar el orden
+            //!? Descomentar la expresión
+            //!? Cambiar el divisor por 3
+
+            notaMedia = (nota1 + nota2 + nota3) / 3;
 
             return notaMedia;
-
-            notaMedia = (nota1 + nota2 + nota3) / nota2;
         }
         private void validaMediaBtn_Click(object sender, EventArgs e)
         {
@@ -47,13 +55,13 @@ namespace Ejercicio_8_Tema_4
             int nota2;
             int nota3;
             int notaMedia;
-            //bool valida;
+            bool valida;
 
             nota1 = int.Parse(txtNota1.Text);
             nota2 = int.Parse(txtNota2.Text);
             nota3 = int.Parse(txtNota3.Text);
 
-            //valida = validaNotas(nota1, nota2, nota3);
+            valida = validaNotas(nota1, nota2, nota3);
 
             if (validaNotas(nota1, nota2, nota3) == true)
             {
